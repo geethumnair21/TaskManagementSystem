@@ -1,0 +1,39 @@
+.main { 
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+  }  
+  .box-container {
+    display: flex;
+}
+.box {
+  flex: 1;
+  text-align: center;
+  margin: 10px;
+  padding: 20px;
+  background-color: #f0f0f0;
+} 
+  .box:hover { 
+    transform: scale(1.08); 
+  }
+  .box img { 
+    max-width: 100%;
+    height: auto; 
+  } 
+  .box .text { 
+    color: rgb(23, 139, 255); 
+  } 
+  .text {
+    margin-bottom: 20px;
+}
+
+.topic-heading {
+    margin: 0;
+    font-size: 36px;
+}
+
+.topic {
+    margin: 0;
+    font-size: 18px;
+}

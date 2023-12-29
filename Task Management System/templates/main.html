@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <title>Task Management System</title>
+
+</head>
+<body>
+    <div class = "top-navbar">{% set username = username %}{% include 'Home.html' %}</div>
+    <div class="main">  
+        <div class="box-container"> 
+  
+            <div class="box box1"> 
+                <div class="text"> 
+                    <h2 class="topic-heading">{{task_count}}</h2> 
+                    <h2 class="topic">Completed Task</h2> 
+                </div> 
+
+                <a href="{{ url_for('FilterTask',statusFilter='completed')}}"><img src="/static/images/TaskCompleted.jpg" alt="Completed"></a> 
+            </div> 
+
+            <div class="box box2"> 
+                <div class="text"> 
+                 <h2 class="topic-heading">{{Pending}}</h2> 
+                    <h2 class="topic">Pending Task</h2> 
+                </div> 
+
+                <a href="{{ url_for('FilterTask',statusFilter='pending')}}"><img src="/static/images/PendingTask.png"
+                    alt="Pending"> </a>
+            </div> 
+
+            <div class="box box3"> 
+                <div class="text"> 
+                    <h2 class="topic-heading">{{Inprogress}}</h2> 
+                    <h2 class="topic">In Progress</h2> 
+                </div> 
+
+                <a href="{{ url_for('FilterTask',statusFilter='InProgress')}}"><img src="/static/images/InProgress.png"
+                    alt="InProgress"> </a>
+            </div> 
+ 
+        </div>   
+    </div> 
+
+</body>
+</html>

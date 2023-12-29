@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/Home.css">
+    <title>Task Management System</title>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="/static/images/user.png" alt="User Logo">
+            <span class="username">{{username}}</span>
+        </div>
+        
+        <nav class="topnav">
+            <ul>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                <li><a href="{{ url_for('ViewTask') }}">View Task</a></li>
+                <li><a href="{{ url_for('AddTasks') }}">Add Task</a></li>
+                <li><a href="{{ url_for('main') }}">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="main-content">
+        <h2>Welcome to Task Management System</h2>
+        <p>Task Management System allows you to manage your tasks</p>
+    </section>
+   
+
+</body>
+</html>

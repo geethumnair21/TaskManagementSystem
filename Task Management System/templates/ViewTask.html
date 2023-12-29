@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/ViewTask.css">
+    <title>Task Management System</title>
+
+</head>
+<body>
+    <div class = "top-navbar">{% set username = username %}{% include 'Home.html' %}</div>
+    <h1>Task List</h1><br>
+    <form action="{{ url_for('FilterTask') }}" method="get" class="form-inline">
+        <div class="form-group mx-2">
+            <label for="categoryFilter">Category:</label>
+            <select id="categoryFilter" name="categoryFilter" class="form-control">
+                <option value="">All</option>
+                <option value="Internal">Internal</option>
+                <option value="Client">Client</option>
+                <option value="General">General</option>
+            </select>
+        </div>
+        <div class="form-group mx-2">
+            <label for="statusFilter">Status:</label>
+            <select id="statusFilter" name="statusFilter" class="form-control">
+                <option value="">All</option>
+                <option value="pending">Pending</option>
+                <option value="InProgress">In Progress</option>
+                <option value="completed">Completed</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary mx-2">search</button>
+    </form>
+
+    <div class="table-container">
+<table border="1px">
+    <thead>
+        <tr> 
+            <th>Title </th>
+            <th>Descriptions</th>
+            <th>Due date</th> 
+            <th>Status</th>
+            <th>Created date</th>
+            <th>Category</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tbody>
+            {% for i in sqldata %}
+            <tr>         
+                <td>{{i[1]}}</td>
+                <td>{{i[2]}}</td>          
+                <td>{{i[3]}}</td>
+                <td>{{i[4]}}</td> 
+                <td>{{i[5]}}</td> 
+                <td>{{i[6]}}</td>
+                <td><a class="button-link edit-button" href="{{ url_for('AddTask', id=i[0]) }}">Edit</i></a></td>
+                <td><a class="button-link delete-button" href="{{ url_for('DeleteTask', task_id=i[0]) }}">Delete</a></td>
+                    
+               
+            </tr>
+            {% endfor %}
+        </tbody>
+     </thead>
+    </div>
+</table>
+
+</body>
+</html>

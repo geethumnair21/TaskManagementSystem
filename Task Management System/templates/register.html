@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management System</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body background="/static/images/BackgroundImage.jpg">
+    <h1>Task Management System</h1>
+    <form action="/addemployee" method="post">
+        <div>
+            <h3>Registration Form</h3>
+        </div>
+        <div class="mainContainer">
+            <div class="top-row">
+                <div class="field-wrap">
+                    <label>Full Name</label>
+                     <input type="text", placeholder="Enter your Nmae", name="empname" required>
+                </div>
+                <div class="field-wrap">
+                    <label>Username</label>
+                    <input type="text", placeholder="Enter Username", name="empusername" required>
+                </div>
+                <div class="field-wrap">
+                    <label>Email</label>
+                    <input type="text", placeholder="Enter Email", name="email" required>
+                </div>
+                <div class="field-wrap">
+                    <label>Phone Number</label>
+                    <input type="text", placeholder="Enter Phone", name="phone" required>
+                </div>
+                <div class="field-wrap">
+                    <label>Password</label>
+                    <input type="password", placeholder="Enter Password", name="password" required>
+                </div>
+                <div class="field-wrap">
+                    <label>Confirm Password</label>
+                    <input type="password", placeholder="Confirm Password", name="cpassword" required>
+                </div>
+            </div>   
+            <p class="validationmessage">{{error_msg}}</p>
+            <button type="submit">Register</button>
+            <p class="register">Already have an account?  <a href="{{ url_for('login') }}">Login here!</a></p>
+        </div>
+    </form>
+    
+</body>
+</html>

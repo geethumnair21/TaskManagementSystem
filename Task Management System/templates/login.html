@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management System</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body background="/static/images/BackgroundImage.jpg">
+    <h1>Task Management System</h1>
+    <form action="/empHome" method="post">
+        <div>
+            <h3>Sign In</h3>
+            <p>Sign in with your username and password</p>
+        </div>
+        <div class="mainContainer">
+            <label>Your Username</label><br>
+            <input type="text", placeholder="Enter Username", name="username" required>
+            <br><br>
+            <label>Your Password</label><br>
+            <input type="password", placeholder="Enter Password", name="password" required>
+            <br>
+            <button type="submit">Login</button>
+            <p class="validationmessage">{{msg}}</p>
+            <p class="register">Not a member?  <a href="{{ url_for('register') }}">Register here!</a></p>
+        </div>
+    </form>
+    
+</body>
+</html>

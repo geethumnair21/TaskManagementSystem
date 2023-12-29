@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/addTask.css">
+    <title>Task Management System</title>
+
+</head>
+<body>
+    <div class = "top-navbar">{% set username = username %}{% include 'Home.html' %}</div>
+    <form action="{{ url_for('AddTask') }}" method="post">
+        <div class="form-container">
+        <div class="form-control">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" value="{{ form_data.Title if form_data else '' }}" required>
+        </div>
+        <div class="form-control">
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="4" required>{{ form_data.Descriptions if form_data else '' }}</textarea>
+        </div>
+        <div class="form-control">
+            <label for="dueDate">Due Date:</label>
+            <input type="date" id="dueDate" name="dueDate" value="{{ form_data.Due_date if form_data else '' }}" required>
+        </div>
+        <div class="form-control">
+            <label for="status">Status:</label>
+            <select id="status" name="status" >
+                <option value="pending" {% if form_data and form_data.Statuss == 'pending' %}selected{% endif %}>Pending</option>
+                <option value="InProgress" {% if form_data and form_data.Statuss == 'InProgress' %}selected{% endif %}>In Progress</option>
+                <option value="completed" {% if form_data and form_data.Statuss == 'completed' %}selected{% endif %}>Completed</option>
+            </select>
+        </div>
+
+        <div class="form-control">
+            <label for="category">Category:</label>
+            <select id="category" name="category" >
+                <option value="Internal" {% if form_data and form_data.Category == 'Internal' %}selected{% endif %}>Internal</option>
+                <option value="Client" {% if form_data and form_data.Category == 'Client' %}selected{% endif %}>Client</option>
+                <option value="General" {% if form_data and form_data.Category == 'General' %}selected{% endif %}>General</option>
+            </select>        </div>
+        <div class="form-control">
+            <label for="createdDate">Created Date:</label>
+        <input type="date" id="createdDate" name="createdDate" value="{{ form_data.Created_date if form_data else current_datetime }}" required> 
+    </div>
+        <input type="hidden" name="action" value="{{ 'update' if form_data else 'create' }}">
+        {% if form_data %}
+            <input type="hidden" name="id" value="{{ form_data.Task_id  }}">
+        {% endif %}
+        <p>{{msg}}</p>
+        <button type="submit">{{ 'Update Task' if action == 'update' else 'Add Task' }}</button>
+    </div>
+    </form>
+
+</body>
+</html>
